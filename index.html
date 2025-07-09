@@ -6,6 +6,101 @@
   <title>MrdaxKrn | Persistent Blog Template</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Loading screen styles */
+    #loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s;
+    }
+    
+    .loading-logo {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .loading-logo span {
+      color: #3a86ff;
+      animation: pulse 2s infinite;
+    }
+    
+    .loading-spinner {
+      width: 70px;
+      height: 70px;
+      border: 8px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #3a86ff;
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+      position: relative;
+      box-shadow: 0 0 20px rgba(58, 134, 255, 0.3);
+    }
+    
+    .loading-text {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      letter-spacing: 1px;
+      animation: fadeInOut 2s infinite;
+    }
+    
+    .loading-progress {
+      width: 300px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .loading-progress-bar {
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #3a86ff, #6f42c1);
+      border-radius: 4px;
+      animation: progress 3s ease-in-out forwards;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { text-shadow: 0 0 5px rgba(58, 134, 255, 0.5); }
+      50% { text-shadow: 0 0 20px rgba(58, 134, 255, 0.9); }
+      100% { text-shadow: 0 0 5px rgba(58, 134, 255, 0.5); }
+    }
+    
+    @keyframes fadeInOut {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    
+    @keyframes progress {
+      0% { width: 0%; }
+      20% { width: 25%; }
+      40% { width: 50%; }
+      60% { width: 75%; }
+      100% { width: 100%; }
+    }
+    
+    /* Rest of your existing CSS styles */
     * {
       margin: 0;
       padding: 0;
@@ -1766,34 +1861,21 @@
       75% { transform: translateX(-5px); }
       100% { transform: translateX(0); }
     }
-
-    /* ADVERTISEMENT STYLES */
-    .ad-container {
-      margin: 30px 0;
-      text-align: center;
-      padding: 15px;
-      background: var(--light-gray);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-    }
-    
-    .ad-container h4 {
-      margin-bottom: 10px;
-      color: var(--secondary);
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .ad-container {
-        margin: 20px 0;
-      }
-    }
   </style>
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-overlay">
+    <div class="loading-logo">
+      <i class="fas fa-code"></i>Mrdax<span>Krn</span>
+    </div>
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Preparing your blogging experience</div>
+    <div class="loading-progress">
+      <div class="loading-progress-bar"></div>
+    </div>
+  </div>
+  
   <!-- Auto Save Notice -->
   <div class="save-notice" id="saveNotice">
     <i class="fas fa-check-circle"></i> All changes saved automatically!
@@ -1970,13 +2052,13 @@
         <a href="#home" class="logo"><i class="fas fa-code"></i>MrdaxKrn</a>
         <!-- Social Media Icons -->
         <div class="header-social">
-          <a href="#" target="_blank" class="social-icon-header">
+          <a href="https://www.instagram.com/mrdaxkrn?igsh=MTRpbzc2NDZqZmw0eA==" target="_blank" class="social-icon-header">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" target="_blank" class="social-icon-header">
+          <a href="https://youtube.com/@mrkrndax?si=iD248KlRiK811J0T" target="_blank" class="social-icon-header">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="#" target="_blank" class="social-icon-header">
+          <a href="https://t.me/+QyMIDz55j6BkMTc1" target="_blank" class="social-icon-header">
             <i class="fab fa-telegram"></i>
           </a>
         </div>
@@ -2009,13 +2091,13 @@
       
       <!-- Mobile Social Icons -->
       <div class="mobile-social">
-        <a href="#" target="_blank" class="social-icon">
+        <a href="https://www.instagram.com/mrdaxkrn?igsh=MTRpbzc2NDZqZmw0eA==" target="_blank" class="social-icon">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="#" target="_blank" class="social-icon">
+        <a href="https://youtube.com/@mrkrndax?si=iD248KlRiK811J0T" target="_blank" class="social-icon">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="#" target="_blank" class="social-icon">
+        <a href="https://t.me/+QyMIDz55j6BkMTc1" target="_blank" class="social-icon">
           <i class="fab fa-telegram"></i>
         </a>
       </div>
@@ -2047,13 +2129,6 @@
           <!-- Posts will be rendered by JavaScript -->
         </div>
         
-        <!-- Ad Placement 1 -->
-        <div class="ad-container">
-          <h4>Advertisement</h4>
-          <script async="async" data-cfasync="false" src="//pl27102851.profitableratecpm.com/a3c9dff508318ca4cd3d9ece3f92014f/invoke.js"></script>
-          <div id="container-a3c9dff508318ca4cd3d9ece3f92014f"></div>
-        </div>
-        
         <!-- See All Posts Button -->
         <div class="see-all-container">
           <a href="#all-posts" class="btn">See All Posts</a>
@@ -2070,13 +2145,13 @@
             <h3>CONNECT WITH US</h3>
             <p>Follow us on social media for updates and inspiration</p>
             <div class="social-icons-large">
-              <a href="#" target="_blank" class="social-icon-large">
+              <a href="https://www.instagram.com/mrdaxkrn?igsh=MTRpbzc2NDZqZmw0eA==" target="_blank" class="social-icon-large">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="#" target="_blank" class="social-icon-large">
+              <a href="https://youtube.com/@mrkrndax?si=iD248KlRiK811J0T" target="_blank" class="social-icon-large">
                 <i class="fab fa-youtube"></i>
               </a>
-              <a href="#" target="_blank" class="social-icon-large">
+              <a href="https://t.me/+QyMIDz55j6BkMTc1" target="_blank" class="social-icon-large">
                 <i class="fab fa-telegram"></i>
               </a>
             </div>
@@ -2114,14 +2189,6 @@
               <input type="email" placeholder="Your Email" required>
               <button type="submit" class="btn">SUBSCRIBE NOW</button>
             </form>
-          </div>
-          
-          <!-- Ad Placement 2 -->
-          <div class="widget">
-            <div class="ad-container">
-              <h4>Advertisement</h4>
-              <script type='text/javascript' src='//pl27102831.profitableratecpm.com/0d/4f/b5/0d4fb575d418db8c0fef067f655eeef5.js'></script>
-            </div>
           </div>
         </aside>
       </div>
@@ -2281,13 +2348,13 @@
             </ul>
             
             <div class="social-icons">
-              <a href="#" target="_blank" class="social-icon">
+              <a href="https://www.instagram.com/mrdaxkrn?igsh=MTRpbzc2NDZqZmw0eA==" target="_blank" class="social-icon">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="#" target="_blank" class="social-icon">
+              <a href="https://t.me/+QyMIDz55j6BkMTc1" target="_blank" class="social-icon">
                 <i class="fab fa-telegram"></i>
               </a>
-              <a href="#" target="_blank" class="social-icon">
+              <a href="https://youtube.com/@mrkrndax?si=iD248KlRiK811J0T" target="_blank" class="social-icon">
                 <i class="fab fa-youtube"></i>
               </a>
               <a href="https://wa.me/message/QZDYLVVKTVTWJ1" target="_blank" class="social-icon">
@@ -2340,13 +2407,13 @@
           <h3>About MrdaxKrn</h3>
           <p>MrdaxKrn is a clean and minimalist blog template perfect for personal and professional bloggers. Share your thoughts with the world.</p>
           <div class="social-icons">
-            <a href="#" target="_blank" class="social-icon">
+            <a href="https://www.instagram.com/mrdaxkrn?igsh=MTRpbzc2NDZqZmw0eA==" target="_blank" class="social-icon">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" target="_blank" class="social-icon">
+            <a href="https://t.me/+QyMIDz55j6BkMTc1" target="_blank" class="social-icon">
               <i class="fab fa-telegram"></i>
             </a>
-            <a href="#" target="_blank" class="social-icon">
+            <a href="https://youtube.com/@mrkrndax?si=iD248KlRiK811J0T" target="_blank" class="social-icon">
               <i class="fab fa-youtube"></i>
             </a>
             <a href="https://wa.me/message/QZDYLVVKTVTWJ1" target="_blank" class="social-icon">
@@ -2396,21 +2463,35 @@
         </div>
       </div>
       
-      <!-- Ad Placement 3 -->
-      <div class="ad-container">
-        <h4>Advertisement</h4>
-        <script type='text/javascript' src='//pl27102793.profitableratecpm.com/56/c7/0c/56c70cf9f200a139c1d9895cd3317174.js'></script>
-      </div>
-      
       <div class="copyright">
         <p>&copy; 2025 MrdaxKrn Blog. All Rights Reserved. Crafted with <span style="color: var(--primary);">❤</span></p>
-        <p>All changes are automatically saved to your browser</p>
+        <p>All changes are automatically saved to Firebase</p>
       </div>
     </div>
   </footer>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database-compat.js"></script>
+
+  <!-- JavaScript -->
   <script>
-    // Blog data structure with localStorage persistence
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA9CSjLga75uEkv8gk1FWUYoQI9ixBZW_o",
+      authDomain: "blog-project-712b2.firebaseapp.com",
+      databaseURL: "https://blog-project-712b2-default-rtdb.firebaseio.com",
+      projectId: "blog-project-712b2",
+      storageBucket: "blog-project-712b2.firebasestorage.app",
+      messagingSenderId: "69249644853",
+      appId: "1:69249644853:web:5ed923f468c2494037747c"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Blog data structure with Firebase persistence
     let blogData = {
       hero: {
         title: "Minimal Blogging Experience",
@@ -2494,34 +2575,68 @@
       popularPosts: ["1", "2", "3"] // IDs of popular posts
     };
 
-    // Initialize the blog with localStorage
+    // Initialize the blog with Firebase
     function initBlog() {
-      // Try to load from localStorage
-      const savedBlogData = localStorage.getItem('blogData');
+      // Reference to blog data in Firebase
+      const blogRef = database.ref('blogData');
       
-      if (savedBlogData) {
-        try {
-          blogData = JSON.parse(savedBlogData);
-        } catch (e) {
-          console.error('Error parsing saved blog data, using default data', e);
+      // Load blog data from Firebase
+      blogRef.once('value', (snapshot) => {
+        if (snapshot.exists()) {
+          blogData = snapshot.val();
+          console.log('Blog data loaded from Firebase');
+        } else {
+          // Save initial data to Firebase if not exists
+          blogRef.set(blogData).then(() => {
+            console.log('Initial blog data saved to Firebase');
+          });
         }
-      }
-      
-      // Render the blog content
-      renderBlog();
+        
+        // Render the blog content
+        renderBlog();
+        
+        // Hide loading screen
+        setTimeout(() => {
+          const loadingOverlay = document.getElementById('loading-overlay');
+          loadingOverlay.style.opacity = '0';
+          loadingOverlay.style.visibility = 'hidden';
+        }, 800);
+        
+        // Set up real-time updates
+        blogRef.on('value', (snapshot) => {
+          blogData = snapshot.val();
+          renderBlog();
+          console.log('Blog data updated from Firebase');
+        });
+      }).catch((error) => {
+        console.error('Error loading blog data:', error);
+        renderBlog(); // Render with default data
+        
+        // Hide loading screen
+        setTimeout(() => {
+          const loadingOverlay = document.getElementById('loading-overlay');
+          loadingOverlay.style.opacity = '0';
+          loadingOverlay.style.visibility = 'hidden';
+        }, 800);
+      });
     }
 
-    // Save blog data to localStorage
+    // Save blog data to Firebase
     function saveBlogData() {
-      localStorage.setItem('blogData', JSON.stringify(blogData));
-      
-      // Show save notification
-      const saveNotice = document.getElementById('saveNotice');
-      saveNotice.classList.add('show');
-      
-      setTimeout(() => {
-        saveNotice.classList.remove('show');
-      }, 3000);
+      database.ref('blogData').set(blogData).then(() => {
+        console.log('Blog data saved to Firebase');
+        
+        // Show save notification
+        const saveNotice = document.getElementById('saveNotice');
+        saveNotice.classList.add('show');
+        
+        setTimeout(() => {
+          saveNotice.classList.remove('show');
+        }, 3000);
+      }).catch((error) => {
+        console.error('Error saving blog data:', error);
+        alert('Error saving data to Firebase. Please try again.');
+      });
     }
 
     // Render the blog content
@@ -3293,7 +3408,7 @@
         return;
       }
       
-      // Check if OTP matches
+      // Check
       if (userCode === storedOTP.code) {
         authMessage.textContent = '✅ OTP verified successfully!';
         authMessage.className = 'auth-message success-message';
@@ -3406,5 +3521,11 @@
       setupOTPInputs();
     });
   </script>
+
+  <!-- Ad Scripts moved to bottom -->
+  <script async="async" data-cfasync="false" src="//pl27102851.profitableratecpm.com/a3c9dff508318ca4cd3d9ece3f92014f/invoke.js"></script>
+  <div id="container-a3c9dff508318ca4cd3d9ece3f92014f"></div>
+  <script type='text/javascript' src='//pl27102831.profitableratecpm.com/0d/4f/b5/0d4fb575d418db8c0fef067f655eeef5.js'></script>
+  <script type='text/javascript' src='//pl27102793.profitableratecpm.com/56/c7/0c/56c70cf9f200a139c1d9895cd3317174.js'></script>
 </body>
 </html>
